@@ -1,11 +1,19 @@
-#define SINGLE_REPORT_TRANSFER 0x5F
 #include <stdio.h>
+
 typedef struct SensorReport{
     float temperature;
     float windSpeed;
+    float accelX;
+    float accelY;
+    float accelZ;
     char dateTime[32];
 } SensorReport;
 
+#define SINGLE_REPORT_TRANSFER 0xFA
+#define REPORT_SIZE (int)sizeof(SensorReport)+1
+
+unsigned char mockRXBuffer[REPORT_SIZE];
+int mockRXCounter = 0;
 //Read in the bytes until the UART Message is complete
 //Construct an input to the shell from the UART Message bytes
 
@@ -17,7 +25,13 @@ typedef struct SensorReport{
 void UART_TX(unsigned char inputByte)
 {
     //Place UART T_X Function for platform here.
+    //Code below is for testing
     printf("%x ", inputByte);
+    mockRXBuffer[mockRXCounter] = inputByte;
+    mockRXCounter++;
+    if (mockRXCounter > REPORT_SIZE-1){
+        mockRXCounter = 0;
+    }
 }
 
 void txFloat(float input)
@@ -47,7 +61,10 @@ void transmitSensorReport(SensorReport sensorReport){
     //Transmit the float, from lsb to msb
     txFloat(sensorReport.temperature);
     txFloat(sensorReport.windSpeed);
-
+    txFloat(sensorReport.accelX);
+    txFloat(sensorReport.accelY);
+    txFloat(sensorReport.accelZ);
+    
     //Transmit the dateTime
     for (int i = 0; i < 32; i++){
         tempByte = sensorReport.dateTime[i];
