@@ -10,6 +10,7 @@ typedef struct SensorReport{
 } SensorReport;
 
 #define SINGLE_REPORT_TRANSFER 0xFA
+#define MULTI_REPORT_TRANSFER 0xAC
 #define REPORT_SIZE (int)sizeof(SensorReport)+1
 
 unsigned char mockRXBuffer[REPORT_SIZE];
@@ -57,15 +58,16 @@ void txFloat(float input)
 void transmitSensorReport(SensorReport sensorReport){
     //Transmit the Report Transfer Byte
     UART_TX(SINGLE_REPORT_TRANSFER);
-    unsigned char tempByte;
-    //Transmit the float, from lsb to msb
+
+    //Transmit the floats from the report, from lsb to msb
     txFloat(sensorReport.temperature);
     txFloat(sensorReport.windSpeed);
     txFloat(sensorReport.accelX);
     txFloat(sensorReport.accelY);
     txFloat(sensorReport.accelZ);
-    
+
     //Transmit the dateTime
+    unsigned char tempByte;
     for (int i = 0; i < 32; i++){
         tempByte = sensorReport.dateTime[i];
         UART_TX(tempByte);
