@@ -7,7 +7,6 @@ Spring 2024
 #include <stdio.h>
 #include "PIMS_C_UART.h"
 
-
 //Example of how the PIMS E Would use the Library
 //Before this would work, they would have to insert the platform
 //Specific UART function that transmits a byte

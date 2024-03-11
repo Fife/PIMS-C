@@ -11,18 +11,7 @@ This file contains the UART ISR and Shell State Machine
 #ifndef PIMS_DATA_TYPES_H
 #define PIMS_DATA_TYPES_H
 
-//=================== Sensor Report =========================//
-
-typedef struct SensorReport{
-    float temperature;
-    float windSpeed;
-    float accelX;
-    float accelY;
-    float accelZ;
-    char dateTime[32];
-} SensorReport;
-
-#define SENSOR_REPORT_SIZE (unsigned char)sizeof(SensorReport)+1
+#include "SENSOR_REPORT.h"
 
 //======================PIMS Report=========================//
 

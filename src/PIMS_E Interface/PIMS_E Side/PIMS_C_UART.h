@@ -5,7 +5,7 @@ Spring 2024
 */
 
 #include <stdio.h>
-#include "PIMS_DATA_TYPES.h"
+#include "SENSOR_REPORT.h"
 #include "PIMS_C_SHELL_COMMANDS.h"
 
 // Remove at some point
