@@ -1,3 +1,9 @@
+/*
+Jacob Fifield 
+MSU Denver CPE Senior Project II
+Spring 2024
+*/
+
 #include <stdio.h>
 #include "PIMS_DATA_TYPES.h"
 #include "PIMS_C_SHELL_COMMANDS.h"
