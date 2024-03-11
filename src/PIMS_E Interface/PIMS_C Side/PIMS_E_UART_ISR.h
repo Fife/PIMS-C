@@ -3,9 +3,6 @@ Jacob Fifield
 MSU Denver CPE Senior Project II
 Spring 2024
 
-PIMS UART Shell State Machine 
-
-This file contains the UART ISR and Shell State Machine
 */
 
 #include "PIMS_E_SHELL.h"
