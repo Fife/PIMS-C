@@ -1,19 +1,7 @@
 #include <stdio.h>
+#include "pimsDataTypes.h"
 
-typedef struct SensorReport{
-    float temperature;
-    float windSpeed;
-    float accelX;
-    float accelY;
-    float accelZ;
-    char dateTime[32];
-} SensorReport;
-
-#define SINGLE_REPORT_TRANSFER 0xFA
-#define MULTI_REPORT_TRANSFER 0xAC
-#define REPORT_SIZE (int)sizeof(SensorReport)+1
-
-unsigned char mockRXBuffer[REPORT_SIZE];
+unsigned char mockRXBuffer[SENSOR_REPORT_SIZE];
 int mockRXCounter = 0;
 //Read in the bytes until the UART Message is complete
 //Construct an input to the shell from the UART Message bytes
@@ -30,7 +18,7 @@ void UART_TX(unsigned char inputByte)
     printf("%x ", inputByte);
     mockRXBuffer[mockRXCounter] = inputByte;
     mockRXCounter++;
-    if (mockRXCounter > REPORT_SIZE-1){
+    if (mockRXCounter > SENSOR_REPORT_SIZE-1){
         mockRXCounter = 0;
     }
 }
