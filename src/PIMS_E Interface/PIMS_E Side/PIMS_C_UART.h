@@ -35,6 +35,7 @@ void UART_TX_WRAPPER(unsigned char inputByte){
     
     //Code below is for testing
     MOCK_UART_TX(inputByte);
+    
 }
 
 void txFloat(float input)
