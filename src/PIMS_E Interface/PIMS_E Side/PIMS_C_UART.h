@@ -62,11 +62,21 @@ void transmitSensorReport(SensorReport sensorReport){
     UART_TX_WRAPPER(SINGLE_REPORT_TRANSFER);
 
     //Transmit the floats from the report, from lsb to msb
-    txFloat(sensorReport.temperature);
+
+    txFloat(sensorReport.temperatureExternal);
+    txFloat(sensorReport.humidityExternal);
+    txFloat(sensorReport.temperatureInternal);
+    txFloat(sensorReport.humidityInternal);
+    txFloat(sensorReport.accelXMin);
+    txFloat(sensorReport.accelXMax);
+    txFloat(sensorReport.accelYMin);
+    txFloat(sensorReport.accelYMax);
+    txFloat(sensorReport.accelZMin);
+    txFloat(sensorReport.accelZMax);
+    txFloat(sensorReport.accelXOffset);
+    txFloat(sensorReport.accelYOffset);
+    txFloat(sensorReport.accelZOffset);
     txFloat(sensorReport.windSpeed);
-    txFloat(sensorReport.accelX);
-    txFloat(sensorReport.accelY);
-    txFloat(sensorReport.accelZ);
 
     //Transmit the dateTime
     unsigned char tempByte;

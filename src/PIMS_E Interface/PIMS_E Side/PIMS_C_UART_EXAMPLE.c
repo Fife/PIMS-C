@@ -12,9 +12,10 @@ Spring 2024
 //Specific UART function that transmits a byte
 int main(){
     // PIMS-E Constucts the data structure and uses the provided transmit function.
-    struct SensorReport sr1 = {32.52, 2.22, 0.01, 0.1, 0.12, "12/20/2024 10:27:30.576 MST"};
-    printf("\nTransmitting over UART: ");
-    transmitSensorReport(sr1);
     
+    SensorReport sr1 = {"12/20/2024 10:27:30", 32, 2.2, 22, 2.1, -1, 1, -2, 2, -3, 3, 0.1, 0.2, 0.3, 0.25, 0.6};
+    transmitSensorReport(sr1);
+
+
     return 1;
 }

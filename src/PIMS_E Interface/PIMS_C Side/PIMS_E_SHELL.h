@@ -2,6 +2,8 @@
 Jacob Fifield 
 MSU Denver CPE Senior Project II
 Spring 2024
+
+The PIMS E Shell Creates the PIMS Report and places it in the appropriate output buffer.
 */
 
 
