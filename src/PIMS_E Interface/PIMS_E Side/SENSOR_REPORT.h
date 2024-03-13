@@ -11,23 +11,29 @@ Spring 2024
 
 typedef struct SensorReport{
     char dateTime[32];
+
     float temperatureExternal;
     float humidityExternal;
+
     float temperatureInternal;
     float humidityInternal;
     float accelXMin;
     float accelXMax;
+    
     float accelYMin;
     float accelYMax;
+    
     float accelZMin;
     float accelZMax;
+    
     float accelXOffset;
     float accelYOffset;
     float accelZOffset;
+    
     float windSpeed;
     float ultrasound;
 } SensorReport;
 
-#define SENSOR_REPORT_SIZE (unsigned char)sizeof(SensorReport)+1
+#define SENSOR_REPORT_SIZE (unsigned char)sizeof(SensorReport)
 
 #endif 

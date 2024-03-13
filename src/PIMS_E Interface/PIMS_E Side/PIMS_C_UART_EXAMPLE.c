@@ -13,7 +13,7 @@ Spring 2024
 int main(){
     // PIMS-E Constucts the data structure and uses the provided transmit function.
 
-    SensorReport sr1 = {"12/20/2024 10:27:30", 32, 2.2, 22, 2.1, -1, 1, -2, 2, -3, 3, 0.1, 0.2, 0.3, 0.25, 0.6};
+    SensorReport sr1 = {"12/20/2024 10:27:30", 32, 2.2, 22, 2.1, -1, 1, -2, 2, -3, 3, 0.1, 0.2, 0.3, 2.25, 1.6};
     transmitSensorReport(sr1);
 
     return 1;

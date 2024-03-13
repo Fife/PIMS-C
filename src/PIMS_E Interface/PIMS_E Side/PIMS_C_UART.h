@@ -16,7 +16,7 @@ void MOCK_UART_TX(unsigned char inputByte){
     printf("%x ", inputByte);
     mockRXBuffer[mockRXCounter] = inputByte;
     mockRXCounter++;
-    if (mockRXCounter > SENSOR_REPORT_SIZE-1){
+    if (mockRXCounter > SENSOR_REPORT_SIZE){
         mockRXCounter = 0;
     }
 }
@@ -62,6 +62,13 @@ void transmitSensorReport(SensorReport sensorReport){
     //Transmit the Report Transfer Byte
     UART_TX_WRAPPER(SINGLE_REPORT_TRANSFER);
 
+    //Transmit the dateTime
+    unsigned char tempByte;
+    for (int i = 0; i < 32; i++){
+        tempByte = sensorReport.dateTime[i];
+        UART_TX_WRAPPER(tempByte);
+    }
+    
     //Transmit the floats from the report, from lsb to msb
 
     txFloat(sensorReport.temperatureExternal);
@@ -79,10 +86,4 @@ void transmitSensorReport(SensorReport sensorReport){
     txFloat(sensorReport.accelZOffset);
     txFloat(sensorReport.windSpeed);
 
-    //Transmit the dateTime
-    unsigned char tempByte;
-    for (int i = 0; i < 32; i++){
-        tempByte = sensorReport.dateTime[i];
-        UART_TX_WRAPPER(tempByte);
-    }
 }
