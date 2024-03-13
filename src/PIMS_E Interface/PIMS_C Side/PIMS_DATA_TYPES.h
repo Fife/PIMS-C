@@ -1,18 +1,17 @@
-//=================== Sensor Reports =========================//
+/*
+Jacob Fifield 
+MSU Denver CPE Senior Project II
+Spring 2024
 
-#define SINGLE_REPORT_TRANSFER 0xFA
-#define DATA_RECEIVED 0x0E
+PIMS UART Shell State Machine 
 
-typedef struct SensorReport{
-    float temperature;
-    float windSpeed;
-    float accelX;
-    float accelY;
-    float accelZ;
-    char dateTime[32];
-} SensorReport;
+This file contains the UART ISR and Shell State Machine
+*/
 
-#define SENSOR_REPORT_SIZE (unsigned char)sizeof(SensorReport)+1
+#ifndef PIMS_DATA_TYPES_H
+#define PIMS_DATA_TYPES_H
+
+#include "SENSOR_REPORT.h"
 
 //======================PIMS Report=========================//
 
@@ -46,3 +45,4 @@ Sending a sensor report to the PIMS C:
     PIMS C Responds with an DATA_RECEIVED Byte
 */
 
+#endif 
