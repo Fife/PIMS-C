@@ -5,12 +5,6 @@ unsigned short SPI_WRAPPER(unsigned short input){
     // Put Platform Specific SPI Code Here.
 }
 
-void FlashNonVolatileConfig(){
-    SPI_WRAPPER(WRITE_NONVOLATILE_CONFIGURATION_REGISTER);
-    SPI_WRAPPER((unsigned short)(NON_VOLATILE_CONFIGURATION_REGISTER_CONFIG >> 8));
-    SPI_WRAPPER((unsigned short)(NON_VOLATILE_CONFIGURATION_REGISTER_CONFIG));
-}
-
 void FlashRead(unsigned int startingAddress, unsigned short numBytes, unsigned short* buffer){
     SPI_WRAPPER(FOUR_BYTE_READ);
     SPI_WRAPPER(startingAddress);
@@ -71,4 +65,11 @@ void FlashReadID(unsigned short *idBuffer){
     for(int i=0; i<20;i++){
         idBuffer[i] = SPI_WRAPPER(0);
     }
+}
+
+void FlashNonVolatileConfig(){
+    SPI_WRAPPER(WRITE_NONVOLATILE_CONFIGURATION_REGISTER);
+    SPI_WRAPPER((unsigned short)(NON_VOLATILE_CONFIGURATION_REGISTER_CONFIG >> 8));
+    SPI_WRAPPER((unsigned short)(NON_VOLATILE_CONFIGURATION_REGISTER_CONFIG));
+    FlashReset();
 }
