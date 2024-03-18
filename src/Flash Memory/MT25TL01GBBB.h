@@ -52,3 +52,16 @@ void FlashBulkProgram(unsigned int startingAddress, unsigned short *buffer, unsi
         FlashPageProgram(startingAddress + i*8*256, tempBuffer);
     }
 }
+
+void FlashReset(){
+    SPI_WRAPPER(RESET_ENABLE);
+    SPI_WRAPPER(RESET_MEMORY);
+}
+
+//ID is 20 bytes long
+void FlashReadID(unsigned short *idBuffer){
+    SPI_WRAPPER(READ_ID);
+    for(int i=0; i<20;i++){
+        idBuffer[i] = SPI_WRAPPER(0);
+    }
+}
