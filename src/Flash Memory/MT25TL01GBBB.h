@@ -5,6 +5,12 @@ unsigned short SPI_WRAPPER(unsigned short input){
     // Put Platform Specific SPI Code Here.
 }
 
+void FlashNonVolatileConfig(){
+    SPI_WRAPPER(WRITE_NONVOLATILE_CONFIGURATION_REGISTER);
+    SPI_WRAPPER((unsigned short)(NON_VOLATILE_CONFIGURATION_REGISTER_CONFIG >> 8));
+    SPI_WRAPPER((unsigned short)(NON_VOLATILE_CONFIGURATION_REGISTER_CONFIG));
+}
+
 void FlashRead(unsigned int startingAddress, unsigned short numBytes, unsigned short* buffer){
     SPI_WRAPPER(FOUR_BYTE_READ);
     SPI_WRAPPER(startingAddress);
@@ -53,6 +59,7 @@ void FlashBulkProgram(unsigned int startingAddress, unsigned short *buffer, unsi
     }
 }
 
+// Software Reset the Flash Memory 
 void FlashReset(){
     SPI_WRAPPER(RESET_ENABLE);
     SPI_WRAPPER(RESET_MEMORY);
