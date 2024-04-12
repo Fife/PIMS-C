@@ -12,9 +12,9 @@ The PIMS E Shell Creates the PIMS Report and places it in the appropriate output
 #include "PIMS_DATA_TYPES.h"
 #include "PIMS_E_SHELL_COMMANDS.h"
 #include "../LED.h"
+#include <stdbool.h>
 //====================================================================//
 
 SensorReport decodeSR(unsigned char* srt);
 void pimsEShell(unsigned char* shellInput);
-
 #endif

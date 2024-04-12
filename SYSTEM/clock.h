@@ -50,7 +50,7 @@
 */
 
 #include <stdbool.h>
-#include <xc.h> // include processor files - each processor file is guarded.  
+// include processor files - each processor file is guarded.  
 
 #ifndef _XTAL_FREQ
 #define _XTAL_FREQ  16000000UL
@@ -60,11 +60,16 @@
 #define FCY 8000000UL
 #endif
 
+#include <xc.h>
+#include <libpic30.h>
+
+
 #define CLOCK_SystemFrequencyGet()        (16000000UL)
 
 #define CLOCK_PeripheralFrequencyGet()    (CLOCK_SystemFrequencyGet() / 2)
 
 #define CLOCK_InstructionFrequencyGet()   (CLOCK_SystemFrequencyGet() / 2)
+
 /**
  * @Param
     none

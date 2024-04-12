@@ -5,7 +5,7 @@
 
 #include "clock.h"
 
-#define U2BAUD 9600
+#define U2BAUD 115200
 #define DB 8
 #define PARITY 0
 #define FLOW 0

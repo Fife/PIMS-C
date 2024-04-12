@@ -9,6 +9,7 @@
 
 int main(void) {
     PROGRAM_PROTOTYPE();
+    //UART3_TEST();
     return 0;
 }
 

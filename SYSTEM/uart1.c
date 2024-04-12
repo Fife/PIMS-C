@@ -23,12 +23,12 @@ void UART1_Init(void){
     
     // UART 1 Control Registers 
     U1MODEbits.UEN = 0b00;      // No Flow Control
-    U1MODEbits.BRGH = 0;        // Standard Speed Mode
+    U1MODEbits.BRGH = 0b1;        // Standard Speed Mode
     U1MODEbits.PDSEL = 0b00;    // 8 Bit data no parity
     U1MODEbits.RTSMD = 0b1;     // Simplex Mode
     
     //UART 1 Baud Rate Generator 
-    U1BRG = (CLOCK_PeripheralFrequencyGet()/(U1BAUD*16UL)) - 1;
+    U1BRG = (CLOCK_PeripheralFrequencyGet()/(U1BAUD*4UL)) - 1;
     
     // Enable the UART1.
     U1MODEbits.UARTEN = 1;      // Enable UART 1
@@ -46,7 +46,7 @@ char UART1_rx(void){
 }
 
 int UART1_available(void){
-    return ((!U1STAbits.UTXBF) && U1STAbits.UTXEN );
+    return ((!U1STAbits.UTXBF) && U1STAbits.UTXEN);
 }
 
 void UART1_tx(char input){
@@ -55,9 +55,21 @@ void UART1_tx(char input){
 }
 
 void UART1_txbuff(char *input, int size){
-    for (int i=0; i<size; i++){
+    for (int i=0; i<size-1; i++){
         while (U1STAbits.UTXBF);
         U1TXREG = input[i];
     }
 }
 
+void UART1_txJSON(char *input, int size){
+    for (int i=0; i<size; i++){
+        if(input[i] != '\0' && input[i] > 33 && input[i] < 127){
+            while (U1STAbits.UTXBF);
+            U1TXREG = input[i];
+        }
+        else if(input[i] == '\n' || input[i] == ' '){
+            while (U1STAbits.UTXBF);
+            U1TXREG = input[i];
+        }
+    }
+}

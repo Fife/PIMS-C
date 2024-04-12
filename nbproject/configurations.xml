@@ -39,6 +39,8 @@
       <itemPath>SYSTEM/uart2.h</itemPath>
       <itemPath>SYSTEM/setup.c</itemPath>
       <itemPath>SYSTEM/setup.h</itemPath>
+      <itemPath>SYSTEM/uart3.h</itemPath>
+      <itemPath>SYSTEM/uart3.c</itemPath>
     </logicalFolder>
     <logicalFolder name="Unit Tests" displayName="Unit Tests" projectFiles="true">
       <itemPath>Unit Tests/PIMSE_IT.c</itemPath>
@@ -51,6 +53,8 @@
                    projectFiles="true">
       <itemPath>WIZ_INTERFACE/JSON_CONVERTER.h</itemPath>
       <itemPath>WIZ_INTERFACE/JSON_CONVERTER.c</itemPath>
+      <itemPath>WIZ_INTERFACE/WIZ_S2E.c</itemPath>
+      <itemPath>WIZ_INTERFACE/WIZ_S2E.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -272,6 +276,7 @@
         <property key="UART 3" value="true"/>
         <property key="UART 4" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

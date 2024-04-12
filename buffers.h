@@ -33,8 +33,10 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdbool.h>
+#include "PIMSE_INTERFACE/PIMS_DATA_TYPES.h"
+#include "PIMSE_INTERFACE/PIMS_E_SHELL_COMMANDS.h"
 
-#define DB_SIZE 256
+#define DB_SIZE 93
 
 typedef enum BufferState{
     READY,
@@ -55,6 +57,7 @@ void WritePEShellBuffer(uint8_t);
 bool IsNewPEShellBuffer(void);
 void CopyPEShellBuffer(uint8_t *);
 void PEShellBufferInit(void);
+bool isCommand(uint8_t);
 
 // TODO Insert appropriate #include <>
 

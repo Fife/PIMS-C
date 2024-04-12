@@ -15,9 +15,9 @@ const char JSON_PUNCT_END[3] = {'\"', ',' ,'\n'};
 
 static char floatBuff[8];
 float val;
-char outputJSON[1000];
+char outputJSON[JSON_BUFF_SIZE];
 
-char* SensorReportToJSON(SensorReport sr){
+char* SensorReportToJSON(SensorReport incSR){
     //Calculate Size of JSON and Allocate Space
     
     outputJSON[0] = '{';
@@ -44,29 +44,29 @@ char* SensorReportToJSON(SensorReport sr){
         switch(i){
             //The Date Time String
             case 0:
-                for (int j=0; j< sizeof(sr.dateTime); j++){
-                    outputJSON[offset] = sr.dateTime[j];
+                for (int j=0; j< sizeof(incSR.dateTime); j++){
+                    outputJSON[offset] = incSR.dateTime[j];
                     offset++;
                 }
                 break;
             case 1: 
-                val = sr.temperatureExternal;
-                sprintf(floatBuff, "%.4f" ,(double) val);
+                val = incSR.temperatureExternal;
+                sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
                     offset++;
                 }
                 break;
             case 2: 
-                val = sr.humidityExternal;
-                sprintf(floatBuff, "%.4f" ,(double) val);
+                val = incSR.humidityExternal;
+                sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
                     offset++;
                 }
                 break;
             case 3: 
-                val = sr.temperatureInternal;
+                val = incSR.temperatureInternal;
                 sprintf(floatBuff, "%.4f" ,(double) val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -74,7 +74,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 4: 
-                val = sr.humidityInternal;
+                val = incSR.humidityInternal;
                 sprintf(floatBuff, "%.4f" ,(double) val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -82,7 +82,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 5:
-                val = sr.accelXMin;
+                val = incSR.accelXMin;
                 sprintf(floatBuff, "%.4f" ,(double) val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -90,7 +90,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 6: 
-                val = sr.accelXMax;
+                val = incSR.accelXMax;
                 sprintf(floatBuff, "%.4f" ,(double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -98,7 +98,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 7: 
-                val = sr.accelYMin;
+                val = incSR.accelYMin;
                 sprintf(floatBuff, "%.4f" ,(double) val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -106,7 +106,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 8: 
-                val = sr.accelYMax;
+                val = incSR.accelYMax;
                 sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -114,7 +114,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 9: 
-                val = sr.accelZMin;
+                val = incSR.accelZMin;
                 sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -122,14 +122,15 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 10: 
-                val = sr.accelZMax;
+                val = incSR.accelZMax;
                 sprintf(floatBuff, "%.4f" ,(double) val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
                     offset++;
                 }
+                break;
             case 11: 
-                val = sr.accelXOffset;
+                val = incSR.accelXOffset;
                 sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -137,7 +138,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 12: 
-                val = sr.accelYOffset;
+                val = incSR.accelYOffset;
                 sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -145,7 +146,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 13: 
-                val = sr.accelZOffset;
+                val = incSR.accelZOffset;
                 sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -153,7 +154,7 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 14: 
-                val = sr.windSpeed;
+                val = incSR.windSpeed;
                 sprintf(floatBuff, "%.4f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
@@ -161,8 +162,8 @@ char* SensorReportToJSON(SensorReport sr){
                 }
                 break;
             case 15: 
-                val = sr.ultrasound;
-                sprintf(floatBuff, "%8.2f" , (double)val);
+                val = incSR.ultrasound;
+                sprintf(floatBuff, "%.2f" , (double)val);
                 for (int j=0; j< sizeof(floatBuff); j++){
                     outputJSON[offset] = floatBuff[j];
                     offset++;

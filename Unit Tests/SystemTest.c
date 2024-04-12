@@ -12,7 +12,8 @@ uint8_t shellInput[DB_SIZE];
 void PROGRAM_PROTOTYPE(void){
     Init_System();
     LED_INIT();
-    
+    UART1_txbuff("OP\r\n", 4);
+    /*
     while(1){
         //Round Robin, Low priority interrupt-able tasks
         //Operation of PIMS E Shell
@@ -23,9 +24,51 @@ void PROGRAM_PROTOTYPE(void){
             LED_OFF();
         }
     }
+     * 
+    */
+    while(1){
+        
+    }
+    
     return;
 }
 
+void UART3_TEST(void){
+    Init_System();
+    _ANSELB2 = 0;   //PWRDWN
+    _ANSELB15 = 0;  //WAKEUP
+    
+    __delay_ms(100);
+    
+    //Exit Sleep mode Falling Edge
+    LATBbits.LATB15 = 1;    
+    LATBbits.LATB15 = 0;
+    __delay_ms(2);
+    
+    //Wakeup the bluetooth module for a TTM command
+    LATBbits.LATB2 = 1;
+    LATBbits.LATB2 = 0;
+    __delay_ms(2);
+
+    UART3_txbuff("TTM:REN-PIMS-C-001\r\n\0", 21);
+    LATBbits.LATB2 = 1;
+    __delay_ms(2);
+    __delay_ms(100);
+
+    
+    while(1){
+            //Wakeup the bluetooth module for a TTM command
+        LATBbits.LATB2 = 1;
+        LATBbits.LATB2 = 0;
+        __delay_ms(2);
+
+        UART3_txbuff("TTM:REN-PIMS-C-001\r\n\0", 21);
+        LATBbits.LATB2 = 1;
+        __delay_ms(2);
+        __delay_ms(100);
+
+    }
+}
 
 
 

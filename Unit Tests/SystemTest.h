@@ -42,6 +42,7 @@
 
 // TODO Insert declarations
 void PROGRAM_PROTOTYPE(void);
+void UART3_TEST(void);
 // Comment a function and leverage automatic documentation with slash star star
 /**
     <p><b>Function prototype:</b></p>

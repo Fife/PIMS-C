@@ -28,18 +28,19 @@ void UART2_Init(void){
      
     // Configure Output Functions (Table 11-11)
     RPOR3bits.RP6R = 5;
+   
     
     // UART 2 Control Registers 
     U2MODE = 0;                 // Clear Control Register
     U2MODEbits.UEN = 0b00;      // No Flow Control
-    U2MODEbits.BRGH = 0;        // Standard Speed Mode
+    U2MODEbits.BRGH = 0b1;        // Standard Speed Mode
     U2MODEbits.PDSEL = 0b00;    // 8 Bit data no parity
     U2MODEbits.RTSMD = 0b1;     // Simplex Mode
     U2MODEbits.PDSEL0= 0;
 
     
     //UART 2 Baud Rate Generator 
-    U2BRG = (CLOCK_PeripheralFrequencyGet()/(U2BAUD*16UL)) - 1;
+    U2BRG = (CLOCK_PeripheralFrequencyGet()/(U2BAUD*4UL)) - 1;
     
     //Enable UART Interrupt for DMA Controller 0
     //Interrupt when char is received

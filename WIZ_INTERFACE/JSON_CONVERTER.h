@@ -32,9 +32,11 @@
 #define JSON_CONVERTER_H
 
 #include <stdio.h>
+#include <math.h>
 #include "../PIMSE_INTERFACE/SENSOR_REPORT.h"
 
 #define SR_NUM_FIELDS 16
+#define JSON_BUFF_SIZE 512
 
 char* SensorReportToJSON(SensorReport);
 

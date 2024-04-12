@@ -35,7 +35,9 @@
 #include "clock.h"
 #include "uart1.h"
 #include "uart2.h"
+#include "uart3.h"
 #include "../buffers.h"
+#include "../WIZ_INTERFACE/WIZ_S2E.h"
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 int Init_System(void);

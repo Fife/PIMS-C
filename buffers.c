@@ -10,6 +10,18 @@
 
 DoubleBuffer PIMS_E_SHELL_DB;
 
+bool isCommand(uint8_t input){
+    bool output = false; 
+    switch(input){
+        case SINGLE_REPORT_TRANSFER:
+            output = true;
+            break;
+        default:
+            break;
+    }
+    return output; 
+}
+
 void WritePEShellBuffer(uint8_t input){
     //first check the current buffer select
     
@@ -18,32 +30,52 @@ void WritePEShellBuffer(uint8_t input){
         if(PIMS_E_SHELL_DB.counter > DB_SIZE-1){
             PIMS_E_SHELL_DB.counter = 0;
             PIMS_E_SHELL_DB.bufferSelect = 0;
-            PIMS_E_SHELL_DB.aState = NEW; 
-            PIMS_E_SHELL_DB.bufferB[PIMS_E_SHELL_DB.counter] = input;
-            PIMS_E_SHELL_DB.counter++;
+            PIMS_E_SHELL_DB.aState = NEW;
+            if(isCommand(input)){
+                PIMS_E_SHELL_DB.bufferB[PIMS_E_SHELL_DB.counter] = input;
+                PIMS_E_SHELL_DB.counter++;
+            }
         }
         else{
             PIMS_E_SHELL_DB.aState = WRITING;
-            PIMS_E_SHELL_DB.bufferA[PIMS_E_SHELL_DB.counter] = input;
-            PIMS_E_SHELL_DB.counter++;
+            if(PIMS_E_SHELL_DB.counter != 0){
+                PIMS_E_SHELL_DB.bufferA[PIMS_E_SHELL_DB.counter] = input;
+                PIMS_E_SHELL_DB.counter++;
+            }
+            else{
+                if(isCommand(input)){
+                    PIMS_E_SHELL_DB.bufferA[PIMS_E_SHELL_DB.counter] = input;
+                    PIMS_E_SHELL_DB.counter++;
+                }
+            }
         }
-        PIMS_E_SHELL_DB.bufferA[PIMS_E_SHELL_DB.counter] = input;
     }
     else if (PIMS_E_SHELL_DB.bufferSelect == 0 && PIMS_E_SHELL_DB.bState != NEW){
         if(PIMS_E_SHELL_DB.counter > DB_SIZE-1){
             PIMS_E_SHELL_DB.counter = 0;
             PIMS_E_SHELL_DB.bufferSelect = 1;
             PIMS_E_SHELL_DB.bState = NEW; 
-            PIMS_E_SHELL_DB.bufferA[PIMS_E_SHELL_DB.counter] = input;
-            PIMS_E_SHELL_DB.counter++;
+            
+            if(isCommand(input)){
+                PIMS_E_SHELL_DB.bufferA[PIMS_E_SHELL_DB.counter] = input;
+                PIMS_E_SHELL_DB.counter++;
+            }
         }
         else{
             PIMS_E_SHELL_DB.bState = WRITING;
-            PIMS_E_SHELL_DB.bufferB[PIMS_E_SHELL_DB.counter] = input;
-            PIMS_E_SHELL_DB.counter++;
+            if(PIMS_E_SHELL_DB.counter != 0){
+                PIMS_E_SHELL_DB.bufferB[PIMS_E_SHELL_DB.counter] = input;
+                PIMS_E_SHELL_DB.counter++;
+            }
+            else{
+                if(isCommand(input)){
+                    PIMS_E_SHELL_DB.bufferB[PIMS_E_SHELL_DB.counter] = input;
+                    PIMS_E_SHELL_DB.counter++;
+                }
+            }
+
         }
-        PIMS_E_SHELL_DB.bufferB[PIMS_E_SHELL_DB.counter] = input;
-    }
+    } 
     return;
 }
 
@@ -78,4 +110,9 @@ void PEShellBufferInit(void){
     PIMS_E_SHELL_DB.aState = READY;
     PIMS_E_SHELL_DB.bState = READY;
     PIMS_E_SHELL_DB.bufferSelect = 1;
+    for(int i = 0; i<DB_SIZE; i++){
+        PIMS_E_SHELL_DB.bufferA[i] = 0;
+        PIMS_E_SHELL_DB.bufferB[i] = 0;
+    }
+    
 }
