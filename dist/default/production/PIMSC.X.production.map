@@ -27,9 +27,9 @@ Command:
   build/default/production/SYSTEM/uart1.o \
   build/default/production/SYSTEM/uart2.o \
   build/default/production/SYSTEM/setup.o \
+  build/default/production/SYSTEM/uart3.o \
   build/default/production/Unit Tests/SystemTest.o \
   build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o \
-  build/default/production/SYSTEM/uart3.o \
   build/default/production/WIZ_INTERFACE/WIZ_S2E.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
@@ -167,14 +167,14 @@ Default Scalar Model: Small
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x100              0x15a6          0x2079  (8313)
-.const                      0x16a6               0x142           0x1e3  (483)
-.text                       0x17e8               0xf56          0x1701  (5889)
-.dinit                      0x273e                0x62            0x93  (147)
-.text                       0x27a0                0xbc           0x11a  (282)
-.init.delay32               0x285c                0x1c            0x2a  (42)
-.text                       0x2878                0x22            0x33  (51)
+.const                      0x16a6               0x13c           0x1da  (474)
+.text                       0x17e2               0xf66          0x1719  (5913)
+.dinit                      0x2748                0x62            0x93  (147)
+.text                       0x27aa                0xbc           0x11a  (282)
+.init.delay32               0x2866                0x1c            0x2a  (42)
+.text                       0x2882                0x22            0x33  (51)
 
-                 Total "program" memory used (bytes):         0x3b67  (15207) 22%
+                 Total "program" memory used (bytes):         0x3b76  (15222) 22%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -276,86 +276,86 @@ External Symbols in Program Memory (by address):
                   0x001772                  _SensorReportFieldSizes
                   0x001792                  _JSON_PUNCT_INB
                   0x001796                  _JSON_PUNCT_END
-                  0x0017e8                  _decodeSR
-                  0x001d28                  _pimsEShell
-                  0x001d9c                  _SensorReportToJSON
-                  0x002232                  _isCommand
-                  0x002252                  _WritePEShellBuffer
-                  0x002334                  _IsNewPEShellBuffer
-                  0x00234c                  _CopyPEShellBuffer
-                  0x0023ae                  _PEShellBufferInit
-                  0x0023de                  _UART1_Init
-                  0x00241c                  _UART1_rx
-                  0x00243a                  _UART1_available
-                  0x00245a                  _UART1_tx
-                  0x002472                  _UART1_txbuff
-                  0x0024a4                  _UART1_txJSON
-                  0x002534                  _UART2_Init
-                  0x00258e                  _UART2_rx
-                  0x0025ac                  _UART2_available
-                  0x0025cc                  _UART2_tx
-                  0x0025e4                  _UART2_txbuff
-                  0x002616                  _UART3_Init
-                  0x002652                  _UART3_rx
-                  0x002670                  _UART3_available
-                  0x002690                  _UART3_tx
-                  0x0026a8                  _UART3_txbuff
-                  0x0026da                  _PROGRAM_PROTOTYPE
-                  0x0026e8                  _UART3_TEST
-                  0x0027a0                  _CLOCK_Initialize
-                  0x0027de                  _LED_INIT
-                  0x0027e8                  _LED_ON
-                  0x0027f0                  _LED_OFF
-                  0x0027f8                  _LED_TOGGLE
-                  0x002816                  _enableInterrupts
-                  0x00281e                  _disableInterrupts
-                  0x002826                  _initInterrupts
-                  0x00283e                  _WIZ_S2E_Init
-                  0x00285c                  ___delay32
-                  0x002878                  _Init_System
-                  0x002890                  _main
+                  0x0017e2                  _decodeSR
+                  0x001d22                  _pimsEShell
+                  0x001d96                  _SensorReportToJSON
+                  0x00222c                  _isCommand
+                  0x00224c                  _WritePEShellBuffer
+                  0x00232e                  _IsNewPEShellBuffer
+                  0x002346                  _CopyPEShellBuffer
+                  0x0023a8                  _PEShellBufferInit
+                  0x0023d8                  _UART1_Init
+                  0x002416                  _UART1_rx
+                  0x002434                  _UART1_available
+                  0x002454                  _UART1_tx
+                  0x00246c                  _UART1_txbuff
+                  0x00249e                  _UART1_txJSON
+                  0x00252e                  _UART2_Init
+                  0x002588                  _UART2_rx
+                  0x0025a6                  _UART2_available
+                  0x0025c6                  _UART2_tx
+                  0x0025de                  _UART2_txbuff
+                  0x002610                  _UART3_Init
+                  0x00264c                  _UART3_rx
+                  0x00266a                  _UART3_available
+                  0x00268a                  _UART3_tx
+                  0x0026a2                  _UART3_txbuff
+                  0x0026d4                  _PROGRAM_PROTOTYPE
+                  0x0026f2                  _UART3_TEST
+                  0x0027aa                  _CLOCK_Initialize
+                  0x0027e8                  _LED_INIT
+                  0x0027f2                  _LED_ON
+                  0x0027fa                  _LED_OFF
+                  0x002802                  _LED_TOGGLE
+                  0x002820                  _enableInterrupts
+                  0x002828                  _disableInterrupts
+                  0x002830                  _initInterrupts
+                  0x002848                  _WIZ_S2E_Init
+                  0x002866                  ___delay32
+                  0x002882                  _Init_System
+                  0x00289a                  _main
                   0x00af00                  __FSEC.sec
 
 External Symbols in Program Memory (by name):
 
-                  0x0027a0                  _CLOCK_Initialize
-                  0x00234c                  _CopyPEShellBuffer
-                  0x002878                  _Init_System
-                  0x002334                  _IsNewPEShellBuffer
+                  0x0027aa                  _CLOCK_Initialize
+                  0x002346                  _CopyPEShellBuffer
+                  0x002882                  _Init_System
+                  0x00232e                  _IsNewPEShellBuffer
                   0x001796                  _JSON_PUNCT_END
                   0x001792                  _JSON_PUNCT_INB
-                  0x0027de                  _LED_INIT
-                  0x0027f0                  _LED_OFF
-                  0x0027e8                  _LED_ON
-                  0x0027f8                  _LED_TOGGLE
-                  0x0023ae                  _PEShellBufferInit
-                  0x0026da                  _PROGRAM_PROTOTYPE
+                  0x0027e8                  _LED_INIT
+                  0x0027fa                  _LED_OFF
+                  0x0027f2                  _LED_ON
+                  0x002802                  _LED_TOGGLE
+                  0x0023a8                  _PEShellBufferInit
+                  0x0026d4                  _PROGRAM_PROTOTYPE
                   0x001772                  _SensorReportFieldSizes
-                  0x001d9c                  _SensorReportToJSON
-                  0x0023de                  _UART1_Init
-                  0x00243a                  _UART1_available
-                  0x00241c                  _UART1_rx
-                  0x00245a                  _UART1_tx
-                  0x0024a4                  _UART1_txJSON
-                  0x002472                  _UART1_txbuff
-                  0x002534                  _UART2_Init
-                  0x0025ac                  _UART2_available
-                  0x00258e                  _UART2_rx
-                  0x0025cc                  _UART2_tx
-                  0x0025e4                  _UART2_txbuff
-                  0x002616                  _UART3_Init
-                  0x0026e8                  _UART3_TEST
-                  0x002670                  _UART3_available
-                  0x002652                  _UART3_rx
-                  0x002690                  _UART3_tx
-                  0x0026a8                  _UART3_txbuff
-                  0x00283e                  _WIZ_S2E_Init
-                  0x002252                  _WritePEShellBuffer
+                  0x001d96                  _SensorReportToJSON
+                  0x0023d8                  _UART1_Init
+                  0x002434                  _UART1_available
+                  0x002416                  _UART1_rx
+                  0x002454                  _UART1_tx
+                  0x00249e                  _UART1_txJSON
+                  0x00246c                  _UART1_txbuff
+                  0x00252e                  _UART2_Init
+                  0x0025a6                  _UART2_available
+                  0x002588                  _UART2_rx
+                  0x0025c6                  _UART2_tx
+                  0x0025de                  _UART2_txbuff
+                  0x002610                  _UART3_Init
+                  0x0026f2                  _UART3_TEST
+                  0x00266a                  _UART3_available
+                  0x00264c                  _UART3_rx
+                  0x00268a                  _UART3_tx
+                  0x0026a2                  _UART3_txbuff
+                  0x002848                  _WIZ_S2E_Init
+                  0x00224c                  _WritePEShellBuffer
                   0x000242                  __DefaultInterrupt
                   0x00af00                  __FSEC.sec
                   0x000204                  __U2RXInterrupt
                   0x001066                  ___adddf3
-                  0x00285c                  ___delay32
+                  0x002866                  ___delay32
                   0x0010fc                  ___divdf3
                   0x000f7a                  ___eqdf2
                   0x000f8e                  ___extendsfdf2
@@ -401,16 +401,16 @@ External Symbols in Program Memory (by name):
                   0x00013c                  __psv_init
                   0x000100                  __resetPRI
                   0x000c4e                  _atoi
-                  0x0017e8                  _decodeSR
-                  0x00281e                  _disableInterrupts
-                  0x002816                  _enableInterrupts
+                  0x0017e2                  _decodeSR
+                  0x002828                  _disableInterrupts
+                  0x002820                  _enableInterrupts
                   0x0015ae                  _floorl
-                  0x002826                  _initInterrupts
-                  0x002232                  _isCommand
-                  0x002890                  _main
+                  0x002830                  _initInterrupts
+                  0x00222c                  _isCommand
+                  0x00289a                  _main
                   0x000c9a                  _memcpy
                   0x000ca8                  _memset
-                  0x001d28                  _pimsEShell
+                  0x001d22                  _pimsEShell
                   0x000d70                  _strcpy
                   0x000d7e                  _strlen
                   0x000dae                  _tolower
@@ -449,9 +449,9 @@ LOAD build/default/production/SYSTEM/clock.o
 LOAD build/default/production/SYSTEM/uart1.o
 LOAD build/default/production/SYSTEM/uart2.o
 LOAD build/default/production/SYSTEM/setup.o
+LOAD build/default/production/SYSTEM/uart3.o
 LOAD build/default/production/Unit Tests/SystemTest.o
 LOAD build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
-LOAD build/default/production/SYSTEM/uart3.o
 LOAD build/default/production/WIZ_INTERFACE/WIZ_S2E.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD pPIC24Fxxx
@@ -702,7 +702,7 @@ __FDEVOPT1
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x5ed7
+.debug_info       0x000000       0x5edd
  *(.debug_info)
  .debug_info      0x000000        0x6ae build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
  .debug_info      0x0006ae        0x161 build/default/production/main.o
@@ -713,28 +713,28 @@ __FDEVOPT1
  .debug_info      0x001d05        0xc36 build/default/production/SYSTEM/uart1.o
  .debug_info      0x00293b       0x125e build/default/production/SYSTEM/uart2.o
  .debug_info      0x003b99        0x170 build/default/production/SYSTEM/setup.o
- .debug_info      0x003d09        0x68f build/default/production/Unit Tests/SystemTest.o
- .debug_info      0x004398        0x68c build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
- .debug_info      0x004a24        0x7e2 build/default/production/SYSTEM/uart3.o
- .debug_info      0x005206        0x417 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
- .debug_info      0x00561d         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(deqltle.DA_o)
- .debug_info      0x0056aa         0x8b c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dgtge.DA_o)
- .debug_info      0x005735         0x90 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.DA_o)
- .debug_info      0x0057c5         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(fixdfsi.DA_o)
- .debug_info      0x005852         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.DA_o)
- .debug_info      0x0058df         0x8c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.DA_o)
- .debug_info      0x00596b         0xa9 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpadd.DA_o)
- .debug_info      0x005a14         0xa9 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpdiv.DA_o)
- .debug_info      0x005abd         0xa9 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpmul.DA_o)
- .debug_info      0x005b66         0xaa c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpsubs.DA_o)
- .debug_info      0x005c10         0x8e c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dcompare.DA_o)
- .debug_info      0x005c9e         0x8b c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dtype.DA_o)
- .debug_info      0x005d29         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack.DA_o)
- .debug_info      0x005db6         0x8e c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack2.DA_o)
- .debug_info      0x005e44         0x93 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpropagateNaN.DA_o)
+ .debug_info      0x003d09        0x7e2 build/default/production/SYSTEM/uart3.o
+ .debug_info      0x0044eb        0x695 build/default/production/Unit Tests/SystemTest.o
+ .debug_info      0x004b80        0x68c build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+ .debug_info      0x00520c        0x417 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
+ .debug_info      0x005623         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(deqltle.DA_o)
+ .debug_info      0x0056b0         0x8b c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dgtge.DA_o)
+ .debug_info      0x00573b         0x90 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.DA_o)
+ .debug_info      0x0057cb         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(fixdfsi.DA_o)
+ .debug_info      0x005858         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.DA_o)
+ .debug_info      0x0058e5         0x8c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.DA_o)
+ .debug_info      0x005971         0xa9 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpadd.DA_o)
+ .debug_info      0x005a1a         0xa9 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpdiv.DA_o)
+ .debug_info      0x005ac3         0xa9 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpmul.DA_o)
+ .debug_info      0x005b6c         0xaa c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpsubs.DA_o)
+ .debug_info      0x005c16         0x8e c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dcompare.DA_o)
+ .debug_info      0x005ca4         0x8b c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dtype.DA_o)
+ .debug_info      0x005d2f         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack.DA_o)
+ .debug_info      0x005dbc         0x8e c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack2.DA_o)
+ .debug_info      0x005e4a         0x93 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpropagateNaN.DA_o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0xc9b
+.debug_abbrev     0x000000        0xcac
  *(.debug_abbrev)
  .debug_abbrev    0x000000        0x15f build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
  .debug_abbrev    0x00015f         0x36 build/default/production/main.o
@@ -745,27 +745,27 @@ __FDEVOPT1
  .debug_abbrev    0x000508        0x123 build/default/production/SYSTEM/uart1.o
  .debug_abbrev    0x00062b        0x15c build/default/production/SYSTEM/uart2.o
  .debug_abbrev    0x000787         0x36 build/default/production/SYSTEM/setup.o
- .debug_abbrev    0x0007bd         0xd7 build/default/production/Unit Tests/SystemTest.o
- .debug_abbrev    0x000894        0x104 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
- .debug_abbrev    0x000998        0x123 build/default/production/SYSTEM/uart3.o
- .debug_abbrev    0x000abb         0xb4 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
- .debug_abbrev    0x000b6f         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(deqltle.DA_o)
- .debug_abbrev    0x000b83         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dgtge.DA_o)
- .debug_abbrev    0x000b97         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.DA_o)
- .debug_abbrev    0x000bab         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(fixdfsi.DA_o)
- .debug_abbrev    0x000bbf         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.DA_o)
- .debug_abbrev    0x000bd3         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.DA_o)
- .debug_abbrev    0x000be7         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpadd.DA_o)
- .debug_abbrev    0x000bfb         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpdiv.DA_o)
- .debug_abbrev    0x000c0f         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpmul.DA_o)
- .debug_abbrev    0x000c23         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpsubs.DA_o)
- .debug_abbrev    0x000c37         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dcompare.DA_o)
- .debug_abbrev    0x000c4b         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dtype.DA_o)
- .debug_abbrev    0x000c5f         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack.DA_o)
- .debug_abbrev    0x000c73         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack2.DA_o)
- .debug_abbrev    0x000c87         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpropagateNaN.DA_o)
+ .debug_abbrev    0x0007bd        0x123 build/default/production/SYSTEM/uart3.o
+ .debug_abbrev    0x0008e0         0xe8 build/default/production/Unit Tests/SystemTest.o
+ .debug_abbrev    0x0009c8        0x104 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+ .debug_abbrev    0x000acc         0xb4 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
+ .debug_abbrev    0x000b80         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(deqltle.DA_o)
+ .debug_abbrev    0x000b94         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dgtge.DA_o)
+ .debug_abbrev    0x000ba8         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.DA_o)
+ .debug_abbrev    0x000bbc         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(fixdfsi.DA_o)
+ .debug_abbrev    0x000bd0         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.DA_o)
+ .debug_abbrev    0x000be4         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.DA_o)
+ .debug_abbrev    0x000bf8         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpadd.DA_o)
+ .debug_abbrev    0x000c0c         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpdiv.DA_o)
+ .debug_abbrev    0x000c20         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpmul.DA_o)
+ .debug_abbrev    0x000c34         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpsubs.DA_o)
+ .debug_abbrev    0x000c48         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dcompare.DA_o)
+ .debug_abbrev    0x000c5c         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dtype.DA_o)
+ .debug_abbrev    0x000c70         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack.DA_o)
+ .debug_abbrev    0x000c84         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack2.DA_o)
+ .debug_abbrev    0x000c98         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpropagateNaN.DA_o)
 
-.debug_line       0x000000       0x143a
+.debug_line       0x000000       0x1441
  *(.debug_line)
  .debug_line      0x000000        0x1ab build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
  .debug_line      0x0001ab         0x36 build/default/production/main.o
@@ -776,25 +776,25 @@ __FDEVOPT1
  .debug_line      0x000635        0x140 build/default/production/SYSTEM/uart1.o
  .debug_line      0x000775        0x137 build/default/production/SYSTEM/uart2.o
  .debug_line      0x0008ac         0x45 build/default/production/SYSTEM/setup.o
- .debug_line      0x0008f1        0x135 build/default/production/Unit Tests/SystemTest.o
- .debug_line      0x000a26        0x110 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
- .debug_line      0x000b36        0x12f build/default/production/SYSTEM/uart3.o
- .debug_line      0x000c65        0x121 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
- .debug_line      0x000d86         0x3a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(deqltle.DA_o)
- .debug_line      0x000dc0         0x38 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dgtge.DA_o)
- .debug_line      0x000df8         0x59 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.DA_o)
- .debug_line      0x000e51         0x61 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(fixdfsi.DA_o)
- .debug_line      0x000eb2         0x4a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.DA_o)
- .debug_line      0x000efc         0x3a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.DA_o)
- .debug_line      0x000f36         0xa2 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpadd.DA_o)
- .debug_line      0x000fd8        0x100 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpdiv.DA_o)
- .debug_line      0x0010d8         0xde c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpmul.DA_o)
- .debug_line      0x0011b6         0xe8 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpsubs.DA_o)
- .debug_line      0x00129e         0x5f c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dcompare.DA_o)
- .debug_line      0x0012fd         0x45 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dtype.DA_o)
- .debug_line      0x001342         0x5c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack.DA_o)
- .debug_line      0x00139e         0x53 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack2.DA_o)
- .debug_line      0x0013f1         0x49 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpropagateNaN.DA_o)
+ .debug_line      0x0008f1        0x12f build/default/production/SYSTEM/uart3.o
+ .debug_line      0x000a20        0x13c build/default/production/Unit Tests/SystemTest.o
+ .debug_line      0x000b5c        0x110 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+ .debug_line      0x000c6c        0x121 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
+ .debug_line      0x000d8d         0x3a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(deqltle.DA_o)
+ .debug_line      0x000dc7         0x38 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dgtge.DA_o)
+ .debug_line      0x000dff         0x59 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(extendsfdf.DA_o)
+ .debug_line      0x000e58         0x61 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(fixdfsi.DA_o)
+ .debug_line      0x000eb9         0x4a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(funpack.DA_o)
+ .debug_line      0x000f03         0x3a c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(mulsi3.DA_o)
+ .debug_line      0x000f3d         0xa2 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpadd.DA_o)
+ .debug_line      0x000fdf        0x100 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpdiv.DA_o)
+ .debug_line      0x0010df         0xde c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpmul.DA_o)
+ .debug_line      0x0011bd         0xe8 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpsubs.DA_o)
+ .debug_line      0x0012a5         0x5f c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dcompare.DA_o)
+ .debug_line      0x001304         0x45 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dtype.DA_o)
+ .debug_line      0x001349         0x5c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack.DA_o)
+ .debug_line      0x0013a5         0x53 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dunpack2.DA_o)
+ .debug_line      0x0013f8         0x49 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(dpropagateNaN.DA_o)
 
 .debug_frame      0x000000        0x522
  *(.debug_frame)
@@ -807,12 +807,12 @@ __FDEVOPT1
  .debug_frame     0x00026c         0xb0 build/default/production/SYSTEM/uart1.o
  .debug_frame     0x00031c         0x96 build/default/production/SYSTEM/uart2.o
  .debug_frame     0x0003b2         0x2e build/default/production/SYSTEM/setup.o
- .debug_frame     0x0003e0         0x48 build/default/production/Unit Tests/SystemTest.o
- .debug_frame     0x000428         0x36 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
- .debug_frame     0x00045e         0x96 build/default/production/SYSTEM/uart3.o
+ .debug_frame     0x0003e0         0x96 build/default/production/SYSTEM/uart3.o
+ .debug_frame     0x000476         0x48 build/default/production/Unit Tests/SystemTest.o
+ .debug_frame     0x0004be         0x36 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
  .debug_frame     0x0004f4         0x2e build/default/production/WIZ_INTERFACE/WIZ_S2E.o
 
-.debug_str        0x000000        0x24e
+.debug_str        0x000000        0x259
  *(.debug_str)
  .debug_str       0x000000         0x2f build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
  .debug_str       0x00002f         0x1c build/default/production/LED.o
@@ -821,10 +821,10 @@ __FDEVOPT1
  .debug_str       0x0000b1         0x12 build/default/production/SYSTEM/clock.o
  .debug_str       0x0000c3         0x3f build/default/production/SYSTEM/uart1.o
  .debug_str       0x000102         0x87 build/default/production/SYSTEM/uart2.o
- .debug_str       0x000189         0x12 build/default/production/Unit Tests/SystemTest.o
- .debug_str       0x00019b         0x60 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
- .debug_str       0x0001fb         0x35 build/default/production/SYSTEM/uart3.o
- .debug_str       0x000230         0x1e build/default/production/WIZ_INTERFACE/WIZ_S2E.o
+ .debug_str       0x000189         0x35 build/default/production/SYSTEM/uart3.o
+ .debug_str       0x0001be         0x1d build/default/production/Unit Tests/SystemTest.o
+ .debug_str       0x0001db         0x60 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+ .debug_str       0x00023b         0x1e build/default/production/WIZ_INTERFACE/WIZ_S2E.o
 
 .debug_loc
  *(.debug_loc)
@@ -854,11 +854,11 @@ __FDEVOPT1
  .debug_pubnames
                   0x000277         0x22 build/default/production/SYSTEM/setup.o
  .debug_pubnames
-                  0x000299         0x46 build/default/production/Unit Tests/SystemTest.o
+                  0x000299         0x60 build/default/production/SYSTEM/uart3.o
  .debug_pubnames
-                  0x0002df         0x98 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+                  0x0002f9         0x46 build/default/production/Unit Tests/SystemTest.o
  .debug_pubnames
-                  0x000377         0x60 build/default/production/SYSTEM/uart3.o
+                  0x00033f         0x98 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
  .debug_pubnames
                   0x0003d7         0x23 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
 
@@ -886,11 +886,11 @@ __FDEVOPT1
  .debug_aranges
                   0x0000c0         0x18 build/default/production/SYSTEM/setup.o
  .debug_aranges
-                  0x0000d8         0x18 build/default/production/Unit Tests/SystemTest.o
+                  0x0000d8         0x18 build/default/production/SYSTEM/uart3.o
  .debug_aranges
-                  0x0000f0         0x18 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+                  0x0000f0         0x18 build/default/production/Unit Tests/SystemTest.o
  .debug_aranges
-                  0x000108         0x18 build/default/production/SYSTEM/uart3.o
+                  0x000108         0x18 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
  .debug_aranges
                   0x000120         0x18 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
  .debug_aranges
@@ -2707,11 +2707,11 @@ LOAD data_init
  .debug_pubtypes
                   0x0007e6         0x12 build/default/production/SYSTEM/setup.o
  .debug_pubtypes
-                  0x0007f8         0x65 build/default/production/Unit Tests/SystemTest.o
+                  0x0007f8         0xc0 build/default/production/SYSTEM/uart3.o
  .debug_pubtypes
-                  0x00085d         0x34 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+                  0x0008b8         0x65 build/default/production/Unit Tests/SystemTest.o
  .debug_pubtypes
-                  0x000891         0xc0 build/default/production/SYSTEM/uart3.o
+                  0x00091d         0x34 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
  .debug_pubtypes
                   0x000951         0x7c build/default/production/WIZ_INTERFACE/WIZ_S2E.o
 
@@ -2736,11 +2736,11 @@ __c30_signature
  __c30_signature
                   0x0009fd          0x6 build/default/production/SYSTEM/setup.o
  __c30_signature
-                  0x000a03          0x6 build/default/production/Unit Tests/SystemTest.o
+                  0x000a03          0x6 build/default/production/SYSTEM/uart3.o
  __c30_signature
-                  0x000a09          0x6 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+                  0x000a09          0x6 build/default/production/Unit Tests/SystemTest.o
  __c30_signature
-                  0x000a0f          0x6 build/default/production/SYSTEM/uart3.o
+                  0x000a0f          0x6 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
  __c30_signature
                   0x000a15          0x6 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
  __c30_signature
@@ -2891,74 +2891,74 @@ __c30_signature
  .ivt._U2RXInterrupt
                   0x000050          0x2 build/default/production/SYSTEM/interrupts.o
 
-.const              0x96a6        0x142 load address 0x0016a6  
+.const              0x96a6        0x13c load address 0x0016a6  
  .const             0x96a6         0xfe build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
                     0x9772                  _SensorReportFieldSizes
                     0x9792                  _JSON_PUNCT_INB
                     0x9796                  _JSON_PUNCT_END
  .const             0x97a4         0x22 build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
- .const             0x97c6         0x1c build/default/production/Unit Tests/SystemTest.o
- .const             0x97e2          0x6 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
+ .const             0x97c6         0x16 build/default/production/Unit Tests/SystemTest.o
+ .const             0x97dc          0x6 build/default/production/WIZ_INTERFACE/WIZ_S2E.o
 
-.text             0x0017e8        0xf56
- .text            0x0017e8        0x5b4 build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
-                  0x0017e8                  _decodeSR
-                  0x001d28                  _pimsEShell
- .text            0x001d9c        0x496 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
-                  0x001d9c                  _SensorReportToJSON
- .text            0x002232        0x1ac build/default/production/buffers.o
-                  0x002232                  _isCommand
-                  0x002252                  _WritePEShellBuffer
-                  0x002334                  _IsNewPEShellBuffer
-                  0x00234c                  _CopyPEShellBuffer
-                  0x0023ae                  _PEShellBufferInit
- .text            0x0023de        0x156 build/default/production/SYSTEM/uart1.o
-                  0x0023de                  _UART1_Init
-                  0x00241c                  _UART1_rx
-                  0x00243a                  _UART1_available
-                  0x00245a                  _UART1_tx
-                  0x002472                  _UART1_txbuff
-                  0x0024a4                  _UART1_txJSON
- .text            0x002534         0xe2 build/default/production/SYSTEM/uart2.o
-                  0x002534                  _UART2_Init
-                  0x00258e                  _UART2_rx
-                  0x0025ac                  _UART2_available
-                  0x0025cc                  _UART2_tx
-                  0x0025e4                  _UART2_txbuff
- .text            0x002616         0xc4 build/default/production/SYSTEM/uart3.o
-                  0x002616                  _UART3_Init
-                  0x002652                  _UART3_rx
-                  0x002670                  _UART3_available
-                  0x002690                  _UART3_tx
-                  0x0026a8                  _UART3_txbuff
- .text            0x0026da         0x64 build/default/production/Unit Tests/SystemTest.o
-                  0x0026da                  _PROGRAM_PROTOTYPE
-                  0x0026e8                  _UART3_TEST
+.text             0x0017e2        0xf66
+ .text            0x0017e2        0x5b4 build/default/production/PIMSE_INTERFACE/PIMS_E_SHELL.o
+                  0x0017e2                  _decodeSR
+                  0x001d22                  _pimsEShell
+ .text            0x001d96        0x496 build/default/production/WIZ_INTERFACE/JSON_CONVERTER.o
+                  0x001d96                  _SensorReportToJSON
+ .text            0x00222c        0x1ac build/default/production/buffers.o
+                  0x00222c                  _isCommand
+                  0x00224c                  _WritePEShellBuffer
+                  0x00232e                  _IsNewPEShellBuffer
+                  0x002346                  _CopyPEShellBuffer
+                  0x0023a8                  _PEShellBufferInit
+ .text            0x0023d8        0x156 build/default/production/SYSTEM/uart1.o
+                  0x0023d8                  _UART1_Init
+                  0x002416                  _UART1_rx
+                  0x002434                  _UART1_available
+                  0x002454                  _UART1_tx
+                  0x00246c                  _UART1_txbuff
+                  0x00249e                  _UART1_txJSON
+ .text            0x00252e         0xe2 build/default/production/SYSTEM/uart2.o
+                  0x00252e                  _UART2_Init
+                  0x002588                  _UART2_rx
+                  0x0025a6                  _UART2_available
+                  0x0025c6                  _UART2_tx
+                  0x0025de                  _UART2_txbuff
+ .text            0x002610         0xc4 build/default/production/SYSTEM/uart3.o
+                  0x002610                  _UART3_Init
+                  0x00264c                  _UART3_rx
+                  0x00266a                  _UART3_available
+                  0x00268a                  _UART3_tx
+                  0x0026a2                  _UART3_txbuff
+ .text            0x0026d4         0x74 build/default/production/Unit Tests/SystemTest.o
+                  0x0026d4                  _PROGRAM_PROTOTYPE
+                  0x0026f2                  _UART3_TEST
 
-.dinit            0x00273e         0x62
- .dinit           0x00273e         0x62 data_init
+.dinit            0x002748         0x62
+ .dinit           0x002748         0x62 data_init
 
-.text             0x0027a0         0xbc
- .text            0x0027a0         0x3e build/default/production/SYSTEM/clock.o
-                  0x0027a0                  _CLOCK_Initialize
- .text            0x0027de         0x38 build/default/production/LED.o
-                  0x0027de                  _LED_INIT
-                  0x0027e8                  _LED_ON
-                  0x0027f0                  _LED_OFF
-                  0x0027f8                  _LED_TOGGLE
- .text            0x002816         0x28 build/default/production/SYSTEM/interrupts.o
-                  0x002816                  _enableInterrupts
-                  0x00281e                  _disableInterrupts
-                  0x002826                  _initInterrupts
- .text            0x00283e         0x1e build/default/production/WIZ_INTERFACE/WIZ_S2E.o
-                  0x00283e                  _WIZ_S2E_Init
+.text             0x0027aa         0xbc
+ .text            0x0027aa         0x3e build/default/production/SYSTEM/clock.o
+                  0x0027aa                  _CLOCK_Initialize
+ .text            0x0027e8         0x38 build/default/production/LED.o
+                  0x0027e8                  _LED_INIT
+                  0x0027f2                  _LED_ON
+                  0x0027fa                  _LED_OFF
+                  0x002802                  _LED_TOGGLE
+ .text            0x002820         0x28 build/default/production/SYSTEM/interrupts.o
+                  0x002820                  _enableInterrupts
+                  0x002828                  _disableInterrupts
+                  0x002830                  _initInterrupts
+ .text            0x002848         0x1e build/default/production/WIZ_INTERFACE/WIZ_S2E.o
+                  0x002848                  _WIZ_S2E_Init
 
-.init.delay32     0x00285c         0x1c
- .init.delay32    0x00285c         0x1c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32da.Meo)
-                  0x00285c                  ___delay32
+.init.delay32     0x002866         0x1c
+ .init.delay32    0x002866         0x1c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32da.Meo)
+                  0x002866                  ___delay32
 
-.text             0x002878         0x22
- .text            0x002878         0x18 build/default/production/SYSTEM/setup.o
-                  0x002878                  _Init_System
- .text            0x002890          0xa build/default/production/main.o
-                  0x002890                  _main
+.text             0x002882         0x22
+ .text            0x002882         0x18 build/default/production/SYSTEM/setup.o
+                  0x002882                  _Init_System
+ .text            0x00289a          0xa build/default/production/main.o
+                  0x00289a                  _main

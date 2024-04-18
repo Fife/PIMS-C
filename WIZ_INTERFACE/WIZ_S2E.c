@@ -22,6 +22,6 @@ void WIZ_S2E_Init(void){
     
 
     UART1_txbuff("EX\r\n", 4);
-    __delay_ms(1000);
+    __delay_ms(500);
     
 }

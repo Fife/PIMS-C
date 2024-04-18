@@ -12,8 +12,7 @@ uint8_t shellInput[DB_SIZE];
 void PROGRAM_PROTOTYPE(void){
     Init_System();
     LED_INIT();
-    UART1_txbuff("OP\r\n", 4);
-    /*
+    
     while(1){
         //Round Robin, Low priority interrupt-able tasks
         //Operation of PIMS E Shell
@@ -24,13 +23,6 @@ void PROGRAM_PROTOTYPE(void){
             LED_OFF();
         }
     }
-     * 
-    */
-    while(1){
-        
-    }
-    
-    return;
 }
 
 void UART3_TEST(void){
@@ -57,7 +49,7 @@ void UART3_TEST(void){
 
     
     while(1){
-            //Wakeup the bluetooth module for a TTM command
+        //Wakeup the bluetooth module for a TTM command
         LATBbits.LATB2 = 1;
         LATBbits.LATB2 = 0;
         __delay_ms(2);
