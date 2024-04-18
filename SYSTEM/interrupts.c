@@ -50,6 +50,15 @@ void initInterrupts(void)
     return;
 }
 
+void __attribute__((interrupt,auto_psv)) _U1RXInterrupt(void)              
+{  
+
+    
+    //Clear Interrupt Flag
+    IFS0bits.U1RXIF = 0;
+    return;
+}
+
 void __attribute__((interrupt,auto_psv)) _U2RXInterrupt(void)              
 {  
     //While there are characters to RX, write them to the shell buffer
@@ -60,5 +69,23 @@ void __attribute__((interrupt,auto_psv)) _U2RXInterrupt(void)
     
     //Clear Interrupt Flag
     IFS1bits.U2RXIF = 0;
+    return;
+}
+
+void __attribute__((interrupt,auto_psv)) _U3RXInterrupt(void)              
+{  
+
+    
+    //Clear Interrupt Flag
+    IFS5bits.U3RXIF = 0;
+    return;
+}
+
+void __attribute__((interrupt,auto_psv)) _U4RXInterrupt(void)              
+{  
+
+    
+    //Clear Interrupt Flag
+    IFS5bits.U4RXIF = 0;
     return;
 }

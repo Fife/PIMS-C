@@ -18,6 +18,10 @@
                    displayName="Linker Files"
                    projectFiles="true">
     </logicalFolder>
+    <logicalFolder name="LoRA Interface"
+                   displayName="LoRA Interface"
+                   projectFiles="true">
+    </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
@@ -41,6 +45,8 @@
       <itemPath>SYSTEM/setup.h</itemPath>
       <itemPath>SYSTEM/uart3.h</itemPath>
       <itemPath>SYSTEM/uart3.c</itemPath>
+      <itemPath>SYSTEM/uart4.h</itemPath>
+      <itemPath>SYSTEM/uart4.c</itemPath>
     </logicalFolder>
     <logicalFolder name="Unit Tests" displayName="Unit Tests" projectFiles="true">
       <itemPath>Unit Tests/PIMSE_IT.c</itemPath>
@@ -67,6 +73,7 @@
     <Elem>Unit Tests</Elem>
     <Elem>WIZ_INTERFACE</Elem>
     <Elem>SYSTEM</Elem>
+    <Elem>LoRA Interface</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

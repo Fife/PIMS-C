@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=PIMSE_INTERFACE/PIMS_E_SHELL.c main.c LED.c buffers.c SYSTEM/interrupts.c SYSTEM/clock.c SYSTEM/uart1.c SYSTEM/uart2.c SYSTEM/setup.c SYSTEM/uart3.c "Unit Tests/SystemTest.c" WIZ_INTERFACE/JSON_CONVERTER.c WIZ_INTERFACE/WIZ_S2E.c
+SOURCEFILES_QUOTED_IF_SPACED=PIMSE_INTERFACE/PIMS_E_SHELL.c main.c LED.c buffers.c SYSTEM/interrupts.c SYSTEM/clock.c SYSTEM/uart1.c SYSTEM/uart2.c SYSTEM/setup.c SYSTEM/uart3.c SYSTEM/uart4.c "Unit Tests/SystemTest.c" WIZ_INTERFACE/JSON_CONVERTER.c WIZ_INTERFACE/WIZ_S2E.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PIMSE_INTERFACE/PIMS_E_SHELL.o ${OBJECTDIR}/main.o ${OBJECTDIR}/LED.o ${OBJECTDIR}/buffers.o ${OBJECTDIR}/SYSTEM/interrupts.o ${OBJECTDIR}/SYSTEM/clock.o ${OBJECTDIR}/SYSTEM/uart1.o ${OBJECTDIR}/SYSTEM/uart2.o ${OBJECTDIR}/SYSTEM/setup.o ${OBJECTDIR}/SYSTEM/uart3.o "${OBJECTDIR}/Unit Tests/SystemTest.o" ${OBJECTDIR}/WIZ_INTERFACE/JSON_CONVERTER.o ${OBJECTDIR}/WIZ_INTERFACE/WIZ_S2E.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/PIMSE_INTERFACE/PIMS_E_SHELL.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/LED.o.d ${OBJECTDIR}/buffers.o.d ${OBJECTDIR}/SYSTEM/interrupts.o.d ${OBJECTDIR}/SYSTEM/clock.o.d ${OBJECTDIR}/SYSTEM/uart1.o.d ${OBJECTDIR}/SYSTEM/uart2.o.d ${OBJECTDIR}/SYSTEM/setup.o.d ${OBJECTDIR}/SYSTEM/uart3.o.d "${OBJECTDIR}/Unit Tests/SystemTest.o.d" ${OBJECTDIR}/WIZ_INTERFACE/JSON_CONVERTER.o.d ${OBJECTDIR}/WIZ_INTERFACE/WIZ_S2E.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PIMSE_INTERFACE/PIMS_E_SHELL.o ${OBJECTDIR}/main.o ${OBJECTDIR}/LED.o ${OBJECTDIR}/buffers.o ${OBJECTDIR}/SYSTEM/interrupts.o ${OBJECTDIR}/SYSTEM/clock.o ${OBJECTDIR}/SYSTEM/uart1.o ${OBJECTDIR}/SYSTEM/uart2.o ${OBJECTDIR}/SYSTEM/setup.o ${OBJECTDIR}/SYSTEM/uart3.o ${OBJECTDIR}/SYSTEM/uart4.o "${OBJECTDIR}/Unit Tests/SystemTest.o" ${OBJECTDIR}/WIZ_INTERFACE/JSON_CONVERTER.o ${OBJECTDIR}/WIZ_INTERFACE/WIZ_S2E.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/PIMSE_INTERFACE/PIMS_E_SHELL.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/LED.o.d ${OBJECTDIR}/buffers.o.d ${OBJECTDIR}/SYSTEM/interrupts.o.d ${OBJECTDIR}/SYSTEM/clock.o.d ${OBJECTDIR}/SYSTEM/uart1.o.d ${OBJECTDIR}/SYSTEM/uart2.o.d ${OBJECTDIR}/SYSTEM/setup.o.d ${OBJECTDIR}/SYSTEM/uart3.o.d ${OBJECTDIR}/SYSTEM/uart4.o.d "${OBJECTDIR}/Unit Tests/SystemTest.o.d" ${OBJECTDIR}/WIZ_INTERFACE/JSON_CONVERTER.o.d ${OBJECTDIR}/WIZ_INTERFACE/WIZ_S2E.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/PIMSE_INTERFACE/PIMS_E_SHELL.o ${OBJECTDIR}/main.o ${OBJECTDIR}/LED.o ${OBJECTDIR}/buffers.o ${OBJECTDIR}/SYSTEM/interrupts.o ${OBJECTDIR}/SYSTEM/clock.o ${OBJECTDIR}/SYSTEM/uart1.o ${OBJECTDIR}/SYSTEM/uart2.o ${OBJECTDIR}/SYSTEM/setup.o ${OBJECTDIR}/SYSTEM/uart3.o ${OBJECTDIR}/Unit\ Tests/SystemTest.o ${OBJECTDIR}/WIZ_INTERFACE/JSON_CONVERTER.o ${OBJECTDIR}/WIZ_INTERFACE/WIZ_S2E.o
+OBJECTFILES=${OBJECTDIR}/PIMSE_INTERFACE/PIMS_E_SHELL.o ${OBJECTDIR}/main.o ${OBJECTDIR}/LED.o ${OBJECTDIR}/buffers.o ${OBJECTDIR}/SYSTEM/interrupts.o ${OBJECTDIR}/SYSTEM/clock.o ${OBJECTDIR}/SYSTEM/uart1.o ${OBJECTDIR}/SYSTEM/uart2.o ${OBJECTDIR}/SYSTEM/setup.o ${OBJECTDIR}/SYSTEM/uart3.o ${OBJECTDIR}/SYSTEM/uart4.o ${OBJECTDIR}/Unit\ Tests/SystemTest.o ${OBJECTDIR}/WIZ_INTERFACE/JSON_CONVERTER.o ${OBJECTDIR}/WIZ_INTERFACE/WIZ_S2E.o
 
 # Source Files
-SOURCEFILES=PIMSE_INTERFACE/PIMS_E_SHELL.c main.c LED.c buffers.c SYSTEM/interrupts.c SYSTEM/clock.c SYSTEM/uart1.c SYSTEM/uart2.c SYSTEM/setup.c SYSTEM/uart3.c Unit Tests/SystemTest.c WIZ_INTERFACE/JSON_CONVERTER.c WIZ_INTERFACE/WIZ_S2E.c
+SOURCEFILES=PIMSE_INTERFACE/PIMS_E_SHELL.c main.c LED.c buffers.c SYSTEM/interrupts.c SYSTEM/clock.c SYSTEM/uart1.c SYSTEM/uart2.c SYSTEM/setup.c SYSTEM/uart3.c SYSTEM/uart4.c Unit Tests/SystemTest.c WIZ_INTERFACE/JSON_CONVERTER.c WIZ_INTERFACE/WIZ_S2E.c
 
 
 
@@ -165,6 +165,13 @@ ${OBJECTDIR}/SYSTEM/uart3.o: SYSTEM/uart3.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  SYSTEM/uart3.c  -o ${OBJECTDIR}/SYSTEM/uart3.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/SYSTEM/uart3.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -msmall-code -msmall-data -msmall-scalar -mconst-in-code -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	@${FIXDEPS} "${OBJECTDIR}/SYSTEM/uart3.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/SYSTEM/uart4.o: SYSTEM/uart4.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/SYSTEM" 
+	@${RM} ${OBJECTDIR}/SYSTEM/uart4.o.d 
+	@${RM} ${OBJECTDIR}/SYSTEM/uart4.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  SYSTEM/uart4.c  -o ${OBJECTDIR}/SYSTEM/uart4.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/SYSTEM/uart4.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -msmall-code -msmall-data -msmall-scalar -mconst-in-code -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	@${FIXDEPS} "${OBJECTDIR}/SYSTEM/uart4.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 ${OBJECTDIR}/Unit\ Tests/SystemTest.o: Unit\ Tests/SystemTest.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Unit Tests" 
 	@${RM} "${OBJECTDIR}/Unit Tests/SystemTest.o".d 
@@ -256,6 +263,13 @@ ${OBJECTDIR}/SYSTEM/uart3.o: SYSTEM/uart3.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/SYSTEM/uart3.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  SYSTEM/uart3.c  -o ${OBJECTDIR}/SYSTEM/uart3.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/SYSTEM/uart3.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -msmall-code -msmall-data -msmall-scalar -mconst-in-code -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
 	@${FIXDEPS} "${OBJECTDIR}/SYSTEM/uart3.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/SYSTEM/uart4.o: SYSTEM/uart4.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/SYSTEM" 
+	@${RM} ${OBJECTDIR}/SYSTEM/uart4.o.d 
+	@${RM} ${OBJECTDIR}/SYSTEM/uart4.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  SYSTEM/uart4.c  -o ${OBJECTDIR}/SYSTEM/uart4.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/SYSTEM/uart4.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -msmall-code -msmall-data -msmall-scalar -mconst-in-code -O0 -msmart-io=1 -Wall -msfr-warn=off    -mdfp="${DFP_DIR}/xc16"
+	@${FIXDEPS} "${OBJECTDIR}/SYSTEM/uart4.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/Unit\ Tests/SystemTest.o: Unit\ Tests/SystemTest.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/Unit Tests" 

@@ -8,6 +8,7 @@
 #include "SystemTest.h"
 
 uint8_t shellInput[DB_SIZE];
+bool hasWAN = true; 
 
 void PROGRAM_PROTOTYPE(void){
     Init_System();

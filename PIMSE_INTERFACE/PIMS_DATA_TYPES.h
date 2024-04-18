@@ -23,7 +23,7 @@ typedef enum Destination{
 
 
 typedef struct PIMSReport{
-    char idstring[8];
+    char poleID[12];
     SensorReport sensorReadings;
     Destination destination;
 } PIMSReport;

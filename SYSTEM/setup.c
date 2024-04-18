@@ -13,6 +13,7 @@ int Init_System(void){
     UART1_Init();
     UART2_Init();
     UART3_Init();
+    UART4_Init();
     
     WIZ_S2E_Init();
     PEShellBufferInit();

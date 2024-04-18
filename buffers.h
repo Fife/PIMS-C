@@ -36,7 +36,7 @@
 #include "PIMSE_INTERFACE/PIMS_DATA_TYPES.h"
 #include "PIMSE_INTERFACE/PIMS_E_SHELL_COMMANDS.h"
 
-#define DB_SIZE 93
+#define DB_SIZE 256
 
 typedef enum BufferState{
     READY,

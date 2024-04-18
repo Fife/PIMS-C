@@ -36,6 +36,7 @@
 #include "uart1.h"
 #include "uart2.h"
 #include "uart3.h"
+#include "uart4.h"
 #include "../buffers.h"
 #include "../WIZ_INTERFACE/WIZ_S2E.h"
 

@@ -17,6 +17,7 @@ Unit\ Tests/../SYSTEM/clock.h  \
  Unit\ Tests/../SYSTEM/uart1.h  \
 Unit\ Tests/../SYSTEM/uart2.h  \
  Unit\ Tests/../SYSTEM/uart3.h  \
-Unit\ Tests/../SYSTEM/../buffers.h  \
+Unit\ Tests/../SYSTEM/uart4.h  \
+ Unit\ Tests/../SYSTEM/../buffers.h  \
  Unit\ Tests/../SYSTEM/../WIZ_INTERFACE/WIZ_S2E.h  \
  Unit\ Tests/../SYSTEM/../WIZ_INTERFACE/../SYSTEM/uart1.h 

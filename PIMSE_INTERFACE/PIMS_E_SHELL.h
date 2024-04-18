@@ -17,4 +17,8 @@ The PIMS E Shell Creates the PIMS Report and places it in the appropriate output
 
 SensorReport decodeSR(unsigned char* srt);
 void pimsEShell(unsigned char* shellInput);
+void transmitPIMSReport(PIMSReport);
+void transmitSensorReport(SensorReport);
+void txFloat(float);
+PIMSReport constructPR(uint8_t* );
 #endif

@@ -80,14 +80,10 @@ void WritePEShellBuffer(uint8_t input){
 }
 
 bool IsNewPEShellBuffer(void){
-    if (PIMS_E_SHELL_DB.aState == NEW || PIMS_E_SHELL_DB.bState == NEW){
-        return true; 
-    }
-    return false;
+    return (PIMS_E_SHELL_DB.aState == NEW || PIMS_E_SHELL_DB.bState == NEW);
 }
 
 void CopyPEShellBuffer(uint8_t * destBuffer){
-
     if (PIMS_E_SHELL_DB.aState == NEW){
         for(int i = 0; i<DB_SIZE;i++){
             destBuffer[i] = PIMS_E_SHELL_DB.bufferA[i];
@@ -102,7 +98,6 @@ void CopyPEShellBuffer(uint8_t * destBuffer){
         PIMS_E_SHELL_DB.bState = READY;
         return;
     }
-
 }
 
 void PEShellBufferInit(void){
