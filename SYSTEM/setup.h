@@ -38,6 +38,7 @@
 #include "uart3.h"
 #include "uart4.h"
 #include "../buffers.h"
+#include" "btconnect.h"
 #include "../WIZ_INTERFACE/WIZ_S2E.h"
 
 #include <xc.h> // include processor files - each processor file is guarded.  
