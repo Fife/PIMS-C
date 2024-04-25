@@ -36,6 +36,7 @@
 #include "../buffers.h"
 #include "../LED.h"
 #include "../SYSTEM/setup.h"
+#include "../WIZ_INTERFACE/JSON_CONVERTER.h"
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate
@@ -43,6 +44,8 @@
 // TODO Insert declarations
 void PROGRAM_PROTOTYPE(void);
 void UART3_TEST(void);
+void NodeFunctionality(void);
+void WANFunctionality(void);
 // Comment a function and leverage automatic documentation with slash star star
 /**
     <p><b>Function prototype:</b></p>

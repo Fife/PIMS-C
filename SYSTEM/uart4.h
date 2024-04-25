@@ -28,21 +28,20 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef UART3_H
-#define	UART3_H
+#ifndef UART4_H
+#define	UART4_H
 
-#define U3BAUD 115200
+#define U4BAUD 115200
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "clock.h"
 
-void UART3_Init(void);
-void UART3_tx(char);
-char UART3_rx(void);
-int UART3_available(void);
-void UART3_txbuff(char*, int);
-void UART3_txJSON(char *, int);
-
+void UART4_Init(void);
+void UART4_tx(char);
+char UART4_rx(void);
+int UART4_available(void);
+void UART4_txbuff(char*, int);
+void UART4_txJSON(char *, int);
 // TODO Insert appropriate #include <>
 
 // TODO Insert C++ class definitions if appropriate

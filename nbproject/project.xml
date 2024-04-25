@@ -17,6 +17,7 @@
                 <sourceRootElem>Unit Tests</sourceRootElem>
                 <sourceRootElem>WIZ_INTERFACE</sourceRootElem>
                 <sourceRootElem>SYSTEM</sourceRootElem>
+                <sourceRootElem>LoRA Interface</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

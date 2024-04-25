@@ -7,6 +7,8 @@
 
 #include "interrupts.h"
 #include "../buffers.h"
+#include "../LED.h"
+#include "uart1.h"
 
 void enableInterrupts(void)
 {
@@ -37,6 +39,15 @@ void initInterrupts(void)
     //Reset the UART 2 Interrupt Flag
     IFS1bits.U2RXIF=0;
     
+    /* Set UART4 interrupt priority to 4 (level 7 is highest) */
+    IPC22bits.U4RXIP = 4;
+
+    /* Enable UART 4 Interrupts*/
+    IEC5bits.U4RXIE= 1;
+    
+    //Reset the UART 4 Interrupt Flag
+    IFS5bits.U4RXIF=0;
+    
     /*
     T1CON = 0x00; //Stops the Timer1 and reset control reg.
     TMR1 = 0x00; //Clear contents of the timer register
@@ -50,8 +61,19 @@ void initInterrupts(void)
     return;
 }
 
+void __attribute__((interrupt,auto_psv)) _U1RXInterrupt(void)              
+{  
+    //UART Byte was received from Debug/WAN (if equipped). 
+    
+    //Clear Interrupt Flag
+    IFS0bits.U1RXIF = 0;
+    return;
+}
+
 void __attribute__((interrupt,auto_psv)) _U2RXInterrupt(void)              
 {  
+    //UART Byte was received from PIMS E Subsystem
+    
     //While there are characters to RX, write them to the shell buffer
     while (U2STAbits.URXDA){
         char input = U2RXREG;
@@ -60,5 +82,34 @@ void __attribute__((interrupt,auto_psv)) _U2RXInterrupt(void)
     
     //Clear Interrupt Flag
     IFS1bits.U2RXIF = 0;
+    return;
+}
+
+void __attribute__((interrupt,auto_psv)) _U3RXInterrupt(void)              
+{  
+    //UART Byte was received from Bluetooth Module
+    
+    //Clear Interrupt Flag
+    IFS5bits.U3RXIF = 0;
+    return;
+}
+
+void __attribute__((interrupt,auto_psv)) _U4RXInterrupt(void)              
+{  
+    //UART Byte was received from LoRA Module
+    LED_TOGGLE();
+    
+    //Forward the message to the debug port
+    while (U4STAbits.URXDA){
+        char input = U4RXREG;
+        
+        //Debug Out
+        UART1_tx(input);
+        
+        WriteLORABuffer(input);
+    }
+    
+    //Clear Interrupt Flag
+    IFS5bits.U4RXIF = 0;
     return;
 }

@@ -34,11 +34,14 @@
 #include <stdio.h>
 #include <math.h>
 #include "../PIMSE_INTERFACE/SENSOR_REPORT.h"
+#include "../PIMSE_INTERFACE/PIMS_DATA_TYPES.h"
 
 #define SR_NUM_FIELDS 16
-#define JSON_BUFF_SIZE 512
+#define PR_NUM_FIELDS 2
+#define JSON_BUFF_SIZE 1024
 
 char* SensorReportToJSON(SensorReport);
+char* PIMSReportToJSON(PIMSReport);
 
 
 #endif

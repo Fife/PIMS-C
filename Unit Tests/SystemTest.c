@@ -7,30 +7,41 @@
 
 #include "SystemTest.h"
 
-uint8_t shellInput[DB_SIZE];
+uint8_t shellInput[DB_SIZE]; 
 
 void PROGRAM_PROTOTYPE(void){
     Init_System();
     LED_INIT();
-    UART1_txbuff("OP\r\n", 4);
-    /*
+    
+    //Check to see if PIMS is equipped with a WAN 
+    MODULE_TYPE mode;
+    _TRISF0 = 1;
+    
+    if (!PORTFbits.RF0){
+        mode = GATEWAY;
+    }
+    else{
+        mode = NODE;
+    }
+    
     while(1){
         //Round Robin, Low priority interrupt-able tasks
         //Operation of PIMS E Shell
         if(IsNewPEShellBuffer()){
             LED_ON();
             CopyPEShellBuffer(shellInput);
-            pimsEShell(shellInput);
+            pimsEShell(shellInput, mode);
             LED_OFF();
         }
-    }
-     * 
-    */
-    while(1){
-        
-    }
-    
-    return;
+        if(IsNewLORABuffer()){
+            LED_ON();
+            CopyLORABuffer(shellInput);
+            PIMSReport pr = constructPR(shellInput, LORA);
+            UART1_txJSON(PIMSReportToJSON(pr),JSON_BUFF_SIZE);
+            LED_OFF();
+        }
+
+    } 
 }
 
 void UART3_TEST(void){
@@ -57,7 +68,7 @@ void UART3_TEST(void){
 
     
     while(1){
-            //Wakeup the bluetooth module for a TTM command
+        //Wakeup the bluetooth module for a TTM command
         LATBbits.LATB2 = 1;
         LATBbits.LATB2 = 0;
         __delay_ms(2);
@@ -69,6 +80,3 @@ void UART3_TEST(void){
 
     }
 }
-
-
-

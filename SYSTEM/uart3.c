@@ -54,3 +54,16 @@ void UART3_txbuff(char *input, int size){
         U3TXREG = input[i];
     }
 }
+
+void UART3_txJSON(char *input, int size){
+    for (int i=0; i<size; i++){
+        if(input[i] != '\0' && input[i] > 33 && input[i] < 127){
+            while (U1STAbits.UTXBF);
+            U3TXREG = input[i];
+        }
+        else if(input[i] == '\n' || input[i] == ' '){
+            while (U1STAbits.UTXBF);
+            U3TXREG = input[i];
+        }
+    }
+}
