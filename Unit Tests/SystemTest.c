@@ -7,12 +7,22 @@
 
 #include "SystemTest.h"
 
-uint8_t shellInput[DB_SIZE];
-bool hasWAN = true; 
+uint8_t shellInput[DB_SIZE]; 
 
 void PROGRAM_PROTOTYPE(void){
     Init_System();
     LED_INIT();
+    
+    //Check to see if PIMS is equipped with a WAN 
+    MODULE_TYPE mode;
+    _TRISF0 = 1;
+    
+    if (!PORTFbits.RF0){
+        mode = GATEWAY;
+    }
+    else{
+        mode = NODE;
+    }
     
     while(1){
         //Round Robin, Low priority interrupt-able tasks
@@ -20,10 +30,18 @@ void PROGRAM_PROTOTYPE(void){
         if(IsNewPEShellBuffer()){
             LED_ON();
             CopyPEShellBuffer(shellInput);
-            pimsEShell(shellInput);
+            pimsEShell(shellInput, mode);
             LED_OFF();
         }
-    }
+        if(IsNewLORABuffer()){
+            LED_ON();
+            CopyLORABuffer(shellInput);
+            PIMSReport pr = constructPR(shellInput, LORA);
+            UART1_txJSON(PIMSReportToJSON(pr),JSON_BUFF_SIZE);
+            LED_OFF();
+        }
+
+    } 
 }
 
 void UART3_TEST(void){
@@ -62,6 +80,3 @@ void UART3_TEST(void){
 
     }
 }
-
-
-

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project>
+  <executable name="dist/default/debug/PIMSC.X.debug.elf">
+    <memory name="data">
+      <units>bytes</units>
+      <length>8192</length>
+      <used>2496</used>
+      <free>5696</free>
+    </memory>
+    <memory name="program">
+      <units>bytes</units>
+      <length>66816</length>
+      <used>19710</used>
+      <free>47106</free>
+    </memory>
+  </executable>
+</project>

@@ -19,9 +19,9 @@ void WIZ_S2E_Init(void){
     TRISGbits.TRISG8 = 0;
     _LATG8 = 1;
     //Boot in Data Transmission Mode
-    
+    __delay_ms(500);
 
     UART1_txbuff("EX\r\n", 4);
-    __delay_ms(500);
+
     
 }

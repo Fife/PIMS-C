@@ -53,11 +53,17 @@ typedef struct DoubleBuffer{
     volatile BufferState bState;
 } DoubleBuffer;
 
+bool isCommand(uint8_t);
+
 void WritePEShellBuffer(uint8_t);
 bool IsNewPEShellBuffer(void);
 void CopyPEShellBuffer(uint8_t *);
 void PEShellBufferInit(void);
-bool isCommand(uint8_t);
+
+void WriteLORABuffer(uint8_t);
+void LORABufferInit(void);
+void CopyLORABuffer(uint8_t *);
+bool IsNewLORABuffer(void);
 
 // TODO Insert appropriate #include <>
 

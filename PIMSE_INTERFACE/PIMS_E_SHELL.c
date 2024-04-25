@@ -11,11 +11,7 @@
 #include "../SYSTEM/uart1.h"
 #include "../SYSTEM/uart4.h"
 #include "../SYSTEM/uart3.h"
-#include "../buffers.h"
 
-bool GATEWAY = true;
-bool MAINTENANCE_MODE = false; 
-char* poleNAME = "00:AA";
 
 SensorReport decodeSR(unsigned char* srt){
    
@@ -94,22 +90,21 @@ SensorReport decodeSR(unsigned char* srt){
     return incSR;
 }
 
-
-void pimsEShell(uint8_t * shellInput){
+void pimsEShell(uint8_t * shellInput, MODULE_TYPE mode){
     //First input is always a command
     uint8_t command = shellInput[0];
     switch(command)
     {
-        case (SINGLE_REPORT_TRANSFER):{
+        case (PIMS_E_SINGLE_REPORT_TRANSFER):{
             //Decode Sensor Report and Build PIMS Report
-            PIMSReport pr = constructPR(shellInput);
-            transmitPIMSReport(pr);
-            
-            //Maintenance Clause
-            if(MAINTENANCE_MODE){
-                UART3_txJSON(SensorReportToJSON(pr.sensorReadings), JSON_BUFF_SIZE);
+            PIMSReport pr;
+            if(mode == NODE){
+                pr = constructPR(shellInput, LORA);
             }
-            
+            else{
+                pr = constructPR(shellInput, WEB_SERVER);
+            }
+            transmitPIMSReport(pr);
             break;
         }
         default:{
@@ -127,22 +122,22 @@ void pimsEShell(uint8_t * shellInput){
     }
 }
 
-PIMSReport constructPR(uint8_t* shellInput){
+PIMSReport constructPR(uint8_t* shellInput, Destination dest){
 
     PIMSReport pr;
     //Decode Sensor Report from buffer
     pr.sensorReadings = decodeSR(shellInput);
+    pr.destination = dest;
     
-    if(GATEWAY){
-        pr.destination = WEB_SERVER;
-    }
-    
-    else{
-        pr.destination = LORA;
-    }
-    
+    char* ID;
     //Pole ID
-    char* ID = "PIMSC-3C:1F";
+    if(dest == LORA){
+        ID = "PIMSC-000002";
+    }
+    if(dest == WEB_SERVER){
+        ID = "PIMSC-000001";
+    }
+    
     for(int i =0; i<12; i++){
         pr.poleID[i] = ID[i];
     }
@@ -162,11 +157,9 @@ void txFloat(float input)
     }
 }
 
-void transmitSensorReport(SensorReport sensorReport){
+int transmitSensorReportLora(SensorReport sensorReport){
     //Transmit the Report Transfer Byte
     int counter = 0; 
-    UART4_tx(SINGLE_REPORT_TRANSFER);
-    counter ++;
     //Transmit the dateTime
     unsigned char tempByte;
     for (int i = 0; i < 32; i++){
@@ -174,8 +167,6 @@ void transmitSensorReport(SensorReport sensorReport){
         UART4_tx(tempByte);
         counter ++;
     }
-    
-    
     //Transmit the floats from the report, from lsb to msb
 
     txFloat(sensorReport.temperatureExternal);
@@ -209,10 +200,7 @@ void transmitSensorReport(SensorReport sensorReport){
     txFloat(sensorReport.ultrasound);
     counter +=4;
 
-    while(counter<256){
-        UART4_tx(0xDD);
-        counter++;
-    }
+    return counter;
 }
 
 void transmitPIMSReport(PIMSReport pimsReport){
@@ -221,9 +209,23 @@ void transmitPIMSReport(PIMSReport pimsReport){
     }
     
     else if(pimsReport.destination == LORA){
+        
+        //UART4_txJSON(PIMSReportToJSON(pimsReport), JSON_BUFF_SIZE);
+        
+        int counter = 0;
+        UART4_tx(SINGLE_REPORT_TRANSFER);
+        counter++;
         UART4_txbuff(pimsReport.poleID, 8);
-        transmitSensorReport(pimsReport.sensorReadings);
+        counter+=8;
+        counter+= transmitSensorReportLora(pimsReport.sensorReadings);
         UART4_txbuff((char *)pimsReport.destination, 4);
+        counter+=4;
+        
+        while(counter<256){
+            UART4_tx(0xDD);
+            counter++;
+        }
+ 
     }
 }
 

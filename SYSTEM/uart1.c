@@ -23,7 +23,7 @@ void UART1_Init(void){
     
     // UART 1 Control Registers 
     U1MODEbits.UEN = 0b00;      // No Flow Control
-    U1MODEbits.BRGH = 0b1;        // Standard Speed Mode
+    U1MODEbits.BRGH = 0b1;      // Standard Speed Mode
     U1MODEbits.PDSEL = 0b00;    // 8 Bit data no parity
     U1MODEbits.RTSMD = 0b1;     // Simplex Mode
     
