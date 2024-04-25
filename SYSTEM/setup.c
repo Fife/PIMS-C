@@ -17,7 +17,8 @@ int Init_System(void){
     
     WIZ_S2E_Init();
     PEShellBufferInit();
-    
+    bluetooth_init();
+    wakeup_bluetooth();
     initInterrupts();
     enableInterrupts();
     //Successful Initialization

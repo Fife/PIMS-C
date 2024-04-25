@@ -205,7 +205,9 @@ int transmitSensorReportLora(SensorReport sensorReport){
 
 void transmitPIMSReport(PIMSReport pimsReport){
     if(pimsReport.destination == WEB_SERVER){
-        UART1_txJSON(PIMSReportToJSON(pimsReport), JSON_BUFF_SIZE);
+        char* outputJSON = PIMSReportToJSON(pimsReport);
+        UART1_txJSON(outputJSON, JSON_BUFF_SIZE);
+        bt_transmit(outputJSON, JSON_BUFF_SIZE);
     }
     
     else if(pimsReport.destination == LORA){
